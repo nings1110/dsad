@@ -113,6 +113,15 @@ INSERT INTO tb_get_car_order(order_id, uid, driver_id, order_time, start_time, f
 平均评分和日均接单量保留1位小数，
 日均行驶里程数保留3位小数，按日均接单数升序排序。
 
+用户提交打车请求后，在用户打车记录表生成一条打车记录，order_id-订单号设为null；
+
+当有司机接单时，在打车订单表生成一条订单，填充order_time-接单时间及其左边的字段，start_time-开始计费的上车时间及其右边的字段全部为null，并把order_id-订单号和order_time-接单时间（end_time-打车结束时间）写入打车记录表；若一直无司机接单，超时或中途用户主动取消打车，则记录end_time-打车结束时间。
+
+若乘客上车前，乘客或司机点击取消订单，会将打车订单表对应订单的finish_time-订单完成时间填充为取消时间，其余字段设为null。
+
+当司机接上乘客时，填充订单表中该start_time-开始计费的上车时间。
+当订单完成时填充订单完成时间、里程数、费用；评分设为null，在用户给司机打1~5星评价后填充。
+
 #### Instructions
 
 1.  xxxx
