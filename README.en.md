@@ -9,6 +9,57 @@ Software architecture description
 第二行为n个参数ai,即每个桌子可容纳的最大人数,以空格分隔，范围均在32位int范围内。
 接下来m行，每行两个参数bi,ci。分别表示第i批客人的人数和预计消费金额,以空格分隔,范围均在32位int范围内
 #### Installation
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int n = scanner.nextInt(); // 桌子数
+        int m = scanner.nextInt(); // 客人批次数
+        
+        int[] tableCapacity = new int[n];
+        for (int i = 0; i < n; i++) {
+            tableCapacity[i] = scanner.nextInt(); // 每张桌子的容纳人数
+        }
+        
+        PriorityQueue<Customer> customerQueue = new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < m; i++) {
+            int b = scanner.nextInt(); // 客人人数
+            int c = scanner.nextInt(); // 预计消费金额
+            customerQueue.offer(new Customer(b, c)); // 将客人按消费金额从大到小加入优先队列
+        }
+        
+        long totalRevenue = 0;
+        while (!customerQueue.isEmpty()) {
+            Customer customer = customerQueue.poll();
+            for (int i = 0; i < n; i++) {
+                if (tableCapacity[i] >= customer.numPeople) {
+                    totalRevenue += customer.expectedRevenue;
+                    tableCapacity[i] -= customer.numPeople;
+                    break;
+                }
+            }
+        }
+        
+        System.out.println(totalRevenue);
+    }
+    
+    static class Customer implements Comparable<Customer> {
+        int numPeople;
+        int expectedRevenue;
+        
+        public Customer(int numPeople, int expectedRevenue) {
+            this.numPeople = numPeople;
+            this.expectedRevenue = expectedRevenue;
+        }
+        
+        @Override
+        public int compareTo(Customer other) {
+            return Integer.compare(this.expectedRevenue, other.expectedRevenue);
+        }
+    }
+}
 
 1.  xxxx
 2.  xxxx
