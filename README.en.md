@@ -135,6 +135,39 @@ INSERT INTO tb_get_car_order(order_id, uid, driver_id, order_time, start_time, f
 3.  Commit your code
 4.  Create Pull Request
 
+SELECT 
+    city,
+    driver_id,
+    AVG(grade) AS avg_grade,
+    COUNT(order_id) / DATEDIFF(MAX(order_time), MIN(order_time)) AS daily_order_count,
+    ROUND(SUM(mileage) / COUNT(order_id), 3) AS daily_avg_mileage
+FROM 
+    tb_get_car_order
+WHERE 
+    grade IS NOT NULL
+GROUP BY 
+    city, driver_id
+HAVING 
+    AVG(grade) = (
+        SELECT 
+            MAX(avg_grade)
+        FROM (
+            SELECT 
+                city,
+                driver_id,
+                AVG(grade) AS avg_grade
+            FROM 
+                tb_get_car_order
+            WHERE 
+                grade IS NOT NULL
+            GROUP BY 
+                city, driver_id
+        ) AS t
+        WHERE 
+            t.city = tb_get_car_order.city
+    )
+ORDER BY 
+    daily_order_count ASC;
 
 #### Gitee Feature
 
