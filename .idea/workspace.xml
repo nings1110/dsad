@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64ddf84f-146c-4f21-9c14-b2fe3edf5669" name="Default Changelist" comment="cs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="64ddf84f-146c-4f21-9c14-b2fe3edf5669" name="Default Changelist" comment="cs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709017179508</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="cs">
+      <created>1709716533851</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709716533851</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,12 +160,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="eweq" />
     <MESSAGE value="dqwd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dqwd" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="577" y="504" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1709017230800">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="577" y="504" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1032@0.0.1920.1032" timestamp="1709017230800" />
+    <MESSAGE value="cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="cs" />
   </component>
 </project>
